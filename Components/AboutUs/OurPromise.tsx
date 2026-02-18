@@ -6,6 +6,7 @@ import {
   Headphones,
   Box,
 } from "lucide-react";
+import React from "react";
 
 export default function OurPromise() {
   return (
@@ -15,30 +16,28 @@ export default function OurPromise() {
         {/* Heading */}
         <h2 className="text-3xl md:text-3xl font-bold mb-5  text-black">
            Our Promise to You 
-           </h2>
-           <p className="text-md text-gray-600  ">What makes M Azam Electronics a trusted choice</p>
-
+        </h2>
+        <p className="text-md text-gray-600">
+           What makes M Azam Electronics a trusted choice
+        </p>
 
         {/* Icons Row */}
-        <div className="grid grid-cols-1 mt-15  sm:grid-cols-2 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 mt-15 sm:grid-cols-2 md:grid-cols-4 gap-8">
           <Feature
             icon={<Box size={33} />}
             title="Quality Products"
             text="We only carry printers from trusted global brands that meet our strict performance and durability standards."
           />
-
           <Feature
             icon={<Truck size={33} />}
             title="Fast & Reliable Delivery"
             text="Enjoy quick and secure delivery, with most orders arriving within 1–3 business days."
           />
-
           <Feature
             icon={<Headphones size={33} />}
             title="Expert Customer Support"
             text="Our dedicated support team is always ready to help with installation, maintenance, or technical queries."
           />
-
           <Feature
             icon={<Shield size={33} />}
             title="Worry-Free Warranty"
@@ -50,11 +49,17 @@ export default function OurPromise() {
   );
 }
 
-/* 🔹 Simple Hover Feature (NO CARD) */
-function Feature({ icon, title, text }) {
+/* 🔹 Feature Props Type */
+interface FeatureProps {
+  icon: React.ReactNode;
+  title: string;
+  text: string;
+}
+
+/* 🔹 Feature Component */
+function Feature({ icon, title, text }: FeatureProps) {
   return (
-    <div className="group flex flex-col bg-white rounded-2xl py-8    items-center text-center
-      ">
+    <div className="group flex flex-col bg-white rounded-2xl py-8 items-center text-center">
 
       {/* Icon */}
       <div

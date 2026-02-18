@@ -123,7 +123,7 @@ export default function TrendingPrinters() {
                     <Link href={item.link}>
                   <h3 className="font-semibold text-black mb-2 line-clamp-2 hover:text-red-600">{item.title}</h3>
                     </Link>
-                  <p className="text-sm text-gray-500 border-b-1 border-gray-200 pb-4 mb-4">{item.brand}</p>
+                  <p className="text-sm text-gray-500 border-b border-gray-200 pb-4 mb-4">{item.brand}</p>
                   <Link href={item.link} className="text-red-600 font-semibold inline-flex items-center gap-2">
                     Read More <ArrowRight size={16} />
                   </Link>

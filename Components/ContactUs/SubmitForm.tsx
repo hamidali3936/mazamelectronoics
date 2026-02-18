@@ -46,7 +46,7 @@ export default function SubmitForm() {
             <div>
               <label className="block mb-2 font-medium">Your Message</label>
               <textarea
-                rows="5"
+                rows={5}
                 placeholder="Tell us about your printer needs..."
                 className="w-full border border-gray-300 rounded-lg px-4 py-3 outline-none focus:ring-2 focus:ring-red-500"
               ></textarea>

@@ -32,7 +32,7 @@ const slides = [
 ];
 
 const slideVariants = {
-  enter: (direction) => ({
+  enter: (direction: number) => ({
     x: direction > 0 ? "100%" : "-100%",
     opacity: 0,
   }),
@@ -40,11 +40,12 @@ const slideVariants = {
     x: 0,
     opacity: 1,
   },
-  exit: (direction) => ({
+  exit: (direction: number) => ({
     x: direction > 0 ? "-100%" : "100%",
     opacity: 0,
   }),
 };
+
 
 export default function HeroSlider() {
   const [[index, direction], setSlide] = useState([0, 0]);

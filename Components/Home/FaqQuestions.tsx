@@ -26,9 +26,11 @@ const faqs = [
 ];
 
 export default function FaqQuestions() {
-  const [openIndex, setOpenIndex] = useState(null);
+  // ✅ specify type: number | null
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
 
-  const toggleFAQ = (index) => {
+  // ✅ specify index type
+  const toggleFAQ = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
   };
 
@@ -39,26 +41,23 @@ export default function FaqQuestions() {
         Find answers to common questions about our printers, services, and policies
       </p>
 
-     <div className="bg-white rounded-xl text-black shadow-md w-full max-w-3xl overflow-hidden">
-  {faqs.map((faq, index) => (
-    <div
-      key={index}
-      className={`border-b border-gray-200 last:border-b-0`}
-    >
-      <button
-        onClick={() => toggleFAQ(index)}
-        className="w-full text-left px-6 py-4 flex justify-between items-center focus:outline-none"
-      >
-        <span className="font-medium">{faq.question}</span>
-        <span className="text-red-500 text-xl">
-          {openIndex === index ? "×" : "+"}
-        </span>
-      </button>
+      <div className="bg-white rounded-xl text-black shadow-md w-full max-w-3xl overflow-hidden">
+        {faqs.map((faq, index) => (
+          <div key={index} className={`border-b border-gray-200 last:border-b-0`}>
+            <button
+              onClick={() => toggleFAQ(index)}
+              className="w-full text-left px-6 py-4 flex justify-between items-center focus:outline-none"
+            >
+              <span className="font-medium">{faq.question}</span>
+              <span className="text-red-500 text-xl">
+                {openIndex === index ? "×" : "+"}
+              </span>
+            </button>
 
-      {openIndex === index && (
-        <div className="px-6 pb-4 text-gray-700">{faq.answer}</div>
-      )}
-    </div>
+            {openIndex === index && (
+              <div className="px-6 pb-4 text-gray-700">{faq.answer}</div>
+            )}
+          </div>
         ))}
       </div>
     </div>

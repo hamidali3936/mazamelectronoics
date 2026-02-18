@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import {
   Lightbulb,
   Heart,
@@ -19,25 +20,22 @@ export default function OurValues() {
         <p className="text-gray-700">These principles guide everything we do at M Azam Electronics</p>
 
         {/* Icons Row */}
-        <div className="grid grid-cols-1 mt-15  sm:grid-cols-2 md:grid-cols-4 gap-12">
+        <div className="grid grid-cols-1 mt-15 sm:grid-cols-2 md:grid-cols-4 gap-12">
           <Feature
             icon={<Lightbulb size={25} />}
             title="Innovation"
             text="We constantly explore new printing technologies to bring you cutting-edge solutions."
           />
-
           <Feature
             icon={<Heart size={25} />}
             title="Customer Focus"
             text="Your satisfaction is our top priority. We go above and beyond to exceed expectations."
           />
-
           <Feature
             icon={<Globe size={25} />}
             title="Sustainability"
             text="We care about the environment and follow eco-friendly practices in everything we do."
           />
-
           <Feature
             icon={<Award size={25} />}
             title="Excellence"
@@ -49,8 +47,15 @@ export default function OurValues() {
   );
 }
 
-/* 🔹 Simple Hover Feature (NO CARD) */
-function Feature({ icon, title, text }) {
+/* 🔹 Feature Props Type */
+interface FeatureProps {
+  icon: React.ReactNode;
+  title: string;
+  text: string;
+}
+
+/* 🔹 Feature Component */
+function Feature({ icon, title, text }: FeatureProps) {
   return (
     <div className="group flex flex-col items-center text-center
       transition-transform duration-300 hover:scale-105">
